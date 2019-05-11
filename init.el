@@ -64,7 +64,6 @@
 
 
 
-
 ;; Package Management
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -84,7 +83,7 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(package-selected-packages
    (quote
-    (magit org-plus-contrib org solarized-theme highlight-symbol nyan-mode beacon rainbow-delimiters helm dired-toggle package-utils migemo zenburn-theme markdown-mode ac-slime auto-complete slime))))
+    (undo-tree magit org-plus-contrib org solarized-theme highlight-symbol nyan-mode beacon rainbow-delimiters helm dired-toggle package-utils migemo zenburn-theme markdown-mode ac-slime auto-complete slime))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -92,8 +91,8 @@
  ;; If there is more than one, they won't work right.
  )
 
-                                        ; set theme
-                                        ;(load-theme 'zenburn t)
+;; set theme
+;;(load-theme 'zenburn t)
 (load-theme 'solarized-dark)
 ;; enable auto-complete
 (ac-config-default)
@@ -115,18 +114,17 @@
 ;; beacon
 (beacon-mode 1)
 (setf beacon-color "#80ffd0")
-
 ;; nyan
 (nyan-mode 1)
 (nyan-start-animation)
 ;;highlight-symbol
-                                        ; 1秒後に自動ハイライト
+;; 1秒後に自動ハイライト
 (setf highlight-symbol-idle-delay 0.5)
-                                        ; プログラミングモードでシンボルハイライト
+;; プログラミングモードでシンボルハイライト
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
-                                        ; M-n/M-pでシンボル間移動
+;; M-n/M-pでシンボル間移動
 (add-hook 'prog-mode-hook 'highlight-symbol-nav-mode)
-                                        ; シンボルの置換
+;; シンボルの置換
 (global-set-key (kbd "M-s M-r") 'highlight-symbol-query-replace)
 
 ;; dired-mode
@@ -134,7 +132,7 @@
 (define-key dired-mode-map (kbd "(") 'dired-hide-details-mode)
 (define-key dired-mode-map (kbd ")") 'dired-hide-details-mode)
 (global-set-key "\C-t" 'dired-toggle)
-                                        ;(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
+;;(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
 ;;org-mode
 (global-set-key "\C-cl" 'org-store-link)
@@ -145,8 +143,10 @@
 ;;magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
-
-
+;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode t)
+(global-set-key (kbd "M-/") 'undo-tree-redo)
 
 
 
