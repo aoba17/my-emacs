@@ -1,6 +1,18 @@
-(keyboard-translate ?\C-h ?\C-?)
-
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
+
+(show-paren-mode t)
+(setf show-paren-style 'mixed)
+
+(global-hl-line-mode t)
+
+(setq-default cursor-type 'bar)
+
+(set-frame-parameter nil 'fullscreen 'maximized)
+
+(keyboard-translate ?\C-h ?\C-?)
 
 (setq ring-bell-function 'ignore)
 
@@ -10,19 +22,7 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
-
 (setq-default indent-tabs-mode nil)
-
-(global-hl-line-mode t)
-
-(show-paren-mode t)
-(setf show-paren-style 'mixed)
-
-(setq-default cursor-type 'bar)
-
-(set-frame-parameter nil 'fullscreen 'maximized)
 
 (ffap-bindings)
 
